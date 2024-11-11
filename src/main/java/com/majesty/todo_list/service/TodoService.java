@@ -15,7 +15,7 @@ public class TodoService {
         this.todoRepository = todoRepository;
     }
 
-    List<Todo> create(Todo todo) {
+    public List<Todo> create(Todo todo) {
         todoRepository.save(todo);
         return list();
     }
@@ -27,12 +27,12 @@ public class TodoService {
         return todoRepository.findAll(sort);
     }
 
-    List<Todo> update(Todo todo) {
+    public List<Todo> update(Long id, Todo todo) {
         todoRepository.save(todo);
         return list();
     }
 
-    List<Todo> delete(long id) {
+    public List<Todo> delete(long id) {
         todoRepository.deleteById(id);
         return list();
     }

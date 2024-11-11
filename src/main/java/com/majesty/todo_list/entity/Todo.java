@@ -1,6 +1,7 @@
 package com.majesty.todo_list.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "todos")
@@ -11,6 +12,36 @@ public class Todo {
     private String nome;
     private String descricao;
     private boolean realizado;
+    private int prioridade;
+
+    public Todo() {
+
+    }
+
+    public Todo(Long id, @NotBlank String nome, @NotBlank String descricao, boolean realizado, int prioridade) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.realizado = realizado;
+        this.prioridade = prioridade;
+    }
+
+    /*public Todo(Long id, String nome, String descricao, boolean realizado, int prioridade) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.realizado = realizado;
+        this.prioridade = prioridade;
+    }
+    */
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -43,14 +74,5 @@ public class Todo {
     public void setPrioridade(int prioridade) {
         this.prioridade = prioridade;
     }
-
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long id) {
-        Id = id;
-    }
-
-    private int prioridade;
+    
 }
